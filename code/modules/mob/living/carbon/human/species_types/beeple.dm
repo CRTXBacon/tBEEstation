@@ -2,8 +2,8 @@
 	name = "Beeperson"
 	id = "bee"
 	say_mod = "buzzes"
-  brutemod = 1.1
-  burnmod = 1.1 //bees take increased brute and burn damage
+  	brutemod = 1.1
+  	burnmod = 1.1 //bees take increased brute and burn damage
 	inherent_biotypes = list(MOB_ORGANIC, MOB_HUMANOID, MOB_BUG)
 	mutanttongue = /obj/item/organ/tongue/bee
 	mutantliver = /obj/item/organ/liver/bee
@@ -12,7 +12,7 @@
 	meat = /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/bee
 	disliked_food = VEGETABLES | GROSS
 	liked_food = FRUIT | SUGAR
-  toxic_food = MEAT | RAW | ALCOHOL
+  	toxic_food = MEAT | RAW | ALCOHOL
 
 /datum/species/bee/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(chem.id == "pestkiller")
