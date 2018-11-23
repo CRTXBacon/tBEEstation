@@ -72,6 +72,23 @@
 		message = fly_buZZ.Replace(message, "ZZZ")
 	return message
 
+/obj/item/organ/tongue/bee
+	name = "pollen coated tongue"
+	desc = "You'd think a bee would have a proboscis..."
+	icon_state = "tonguebee"
+	say_mod = "buzzes"
+	taste_sensitivity = 5
+
+/obj/item/organ/tongue/bee/TongueSpeech(var/message)
+	var/regex/fly_buzz = new("z+", "g")
+	var/regex/fly_buZZ = new("Z+", "g")
+	var/regex/fly_buzz = new("s+", "g")
+	var/regex/fly_buZZ = new("S+", "g")
+	if(copytext(message, 1, 2) != "*")
+		message = fly_buzz.Replace(message, "zzz")
+		message = fly_buZZ.Replace(message, "ZZZ") //Absolutely awful but I love it
+	return message
+
 /obj/item/organ/tongue/abductor
 	name = "superlingual matrix"
 	desc = "A mysterious structure that allows for instant communication between users. Pretty impressive until you need to eat something."
