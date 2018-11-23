@@ -73,6 +73,12 @@
 	icon_state = "liver-p"
 	desc = "A large crystal that is somehow capable of metabolizing chemicals, these are found in plasmamen."
 
+/obj/item/organ/liver/bee
+	name = "bee liver"
+	icon_state = "liver-x" //replace with bee liver sprite when it gets made
+	desc = "It almost smells like honey!"
+	alcohol_tolerance = 0.001 //alcoholics contribute little to a hive
+
 /obj/item/organ/liver/cybernetic
 	name = "cybernetic liver"
 	icon_state = "liver-c"
