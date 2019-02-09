@@ -65,6 +65,49 @@
 	gold_core_spawnable = FRIENDLY_SPAWN
 	collar_type = "pug"
 
+/mob/living/simple_animal/pet/dog/pug/stug //Every fibre of my being fears this
+	name = "Wheldon"
+	desc = "A horrifying construct of dead flesh that resembles a pug."
+	icon_state = "stug"
+	icon_living = "stug"
+	icon_dead = "stug_dead"
+	health = 50
+	maxHealth = 50
+	gender = MALE
+	harm_intent_damage = 10
+	butcher_results = list(/obj/item/organ/brain = 1, /obj/item/organ/heart = 1,/obj/item/reagent_containers/food/snacks/meat/slab/pug = 3, \
+	/obj/item/reagent_containers/food/snacks/meat/slab = 3)
+	response_harm = "takes a bite out of"
+	attacked_sound = 'sound/items/eatfood.ogg'
+	deathmessage = "loses its false life and collapses!"
+
+/mob/living/simple_animal/pet/dog/pug/stug/CheckParts(list/parts)
+	..()
+	var/obj/item/organ/brain/B = locate(/obj/item/organ/brain) in contents
+	if(!B || !B.brainmob || !B.brainmob.mind)
+		return
+	B.brainmob.mind.transfer_to(src)
+	to_chat(src, "<span class='big bold'>You are a stug!</span><b> You're a horrible pug/steak hybrid that everyone fears. People can take bites out of you if they're hungry, but you regenerate health \
+    so quickly that it generally doesn't matter. You're remarkably resilient to any damage besides this and it's hard for you to really die at all. You should go around and strike \
+	fear into the souls of the poor crew</b>")
+	var/new_name = stripped_input(src, "Enter your name, or press \"Cancel\" to stick with Wheldon.", "Name Change")
+	if(new_name)
+		to_chat(src, "<span class='notice'>Your name is now <b>\"new_name\"</b>!</span>")
+		name = new_name
+
+/mob/living/simple_animal/pet/dog/pug/stug/Life()
+	..()
+	if(stat)
+		return
+	if(health < maxHealth)
+		adjustBruteLoss(-8)
+
+/mob/living/simple_animal/pet/dog/pug/stug/attack_hand(mob/living/L)
+	..()
+	if(L.a_intent == INTENT_HARM && L.reagents && !stat)
+		L.reagents.add_reagent("nutriment", 0.4)
+		L.reagents.add_reagent("vitamin", 0.4)
+
 /mob/living/simple_animal/pet/dog/corgi/exoticcorgi
 	name = "Exotic Corgi"
 	desc = "As cute as it is colorful!"
