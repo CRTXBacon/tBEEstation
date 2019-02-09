@@ -197,3 +197,16 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/salad/ricepork
 	subcategory = CAT_MEAT
+
+/datum/crafting_recipe/food/stug
+	name = "Living pug/steak hyrbid. Who hurt you?"
+	reqs = list(
+		/obj/item/organ/brain = 1,
+		/obj/item/organ/heart = 1,
+		/obj/item/reagent_containers/food/snacks/meat/slab = 3,
+		/obj/item/reagent_containers/food/snacks/meat/slab/pug = 3, //Making this monstrosity requires a whole pug
+		/datum/reagent/blood = 30,
+		/datum/reagent/teslium = 1 //To shock the whole thing into life
+	)
+	result = /mob/living/simple_animal/pet/dog/pug/stug
+	subcategory = CAT_MEAT
