@@ -237,7 +237,8 @@
 							/mob/living/simple_animal/pet/fox,
 							/mob/living/simple_animal/butterfly,
 							/mob/living/simple_animal/pet/cat/cak,
-							/mob/living/simple_animal/chick)
+							/mob/living/simple_animal/chick,
+							/mob/living/simple_animal/pet/dog/pug/stug)
 			new_mob = new path(M.loc)
 
 		if("humanoid")
